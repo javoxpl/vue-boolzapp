@@ -1,93 +1,123 @@
 * {
-    margin: 0;
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
 }
-body {
-    font-family: arial, helvetica, sans-serif;
+
+.bg-azure {
+    background-color: #8EDAFC;
 }
-/* regole container di sfondo */
-#main-container {
-    background-color: #dadbd4;
+
+.text-azure {
+    color: #8EDAFC;
+}
+
+.row:first-child {
+    background-color: #EAEAEA;
+}
+
+header {
+    height: 100px;
+    background-color: #3B9688;
+}
+
+#app {
+
+    background-color: #D7DBD6;
+    width: 100vw;
     height: 100vh;
-    width: 100%;
-}
-/* fascia superiore */
-#top-band {
-    background-color: #009688;
-    height: 120px;
-    width: 100%;
 }
 
-/* regiole sez container-app */
-#container-app {
-    width: 70%;
+.container {
+    margin-top: -80px;
+    width: 90vw;
     height: 90vh;
-    margin: -100px auto;
-    display: flex;
-    /* debug */
-    background-color: red;
-}
-#col-sx{
-    width: 40%;
-    background-color: #fff;
-}
-#col-dx{
-    width: 60%;
-    background-color: lightcoral;
-}
-#col-sx header, #col-dx header {
-    background-color: #eaeaea;
-}
-#open-chat{
-    border-left: 2px solid #ccc;
-}
-#user, #open-chat {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-right: 10px;
-}
-#user .img-name, #open-chat .img-name {
-    height: 70px;
-    display: flex;
-    align-items: center;
-    padding-left: 10px;
-}
-#user .img-name img, #open-chat .img-name img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-}
-.button-sez i {
-    font-size: 23px;
-    color: #b1b1b1;
-    margin-right: 8px;
+
 }
 
-/* regole main col-sx */
-/* notification */
-#notification {
-    display: flex;
-    align-items: center;
-    padding: 15px 0 15px 15px;
-    background-color: #8edafc;
-}
-#notification a {
-    color: #5a7e8f;
-    font-size: 14px;
-}
-#bells {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.userAvatar img {
+    margin: 12px 0;
     width: 50px;
     height: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
-    background-color: #fff;
 }
-#bells i {
-    font-size: 20px;
-    color: #8edafc;
+
+.contact {
+    background-color: #FFFFFF;
+    position: relative;
+    cursor: pointer;
 }
+
+.contact:hover {
+    background-color: #E9EBEB;
+}
+
+.lastAccess {
+    font-size: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.lastMessage {
+    font-size: 12px;
+}
+
+.icon {
+    line-height: 40px;
+    width: 40px;
+    height: 40px;
+}
+
+.background {
+
+    background-image: url(../img/mine.jpg);
+    background-size: contain;
+    background-repeat: repeat;
+}
+
+.footer {
+
+    background-color: #EAEAEA;
+    position: absolute;
+    bottom: 0;
+    align-items: center;
+}
+
+.col-8 {
+    position: relative;
+}
+
+.sent {
+    position: absolute;
+    top: 100px;
+    left: 0;
+    width: 25%;
+    margin: 40px;
+    padding: 10px;
+    border-radius: 5px;
+    filter: drop-shadow(3px 3px 3px rgb(133, 133, 133));
+    background-color: white;
+    color: black;
+}
+
+.received {
+    width: 25%;
+    border-radius: 5px;
+    filter: drop-shadow(3px 3px 3px rgb(133, 133, 133));
+    position: absolute;
+    margin: 40px;
+    padding: 10px;
+    top: 0;
+    right: 0;
+    background-color: lightgreen;
+    color: black;
+}
+
+.fa-face-smile,
+.fa-play {
+
+    color: #6B7477;
+    padding: 0 20px;
+
+}
+
