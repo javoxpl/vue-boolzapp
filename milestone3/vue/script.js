@@ -193,11 +193,10 @@ const app = new Vue({
         sendMessage() {
             if (this.message == '') return;
             const newMessage = {
-                date: 'Sta scrivendo.. ',
+                date: 'Oggi ' + dayjs().format('HH:mm'),
                 message: this.message,
                 status: 'sent'
             };
-
             const replyMessage = {
                 date: 'Oggi ' + dayjs().format('HH:mm'),
                 message: this.randomReplies[Math.floor(Math.random() * this.randomReplies.length)],
@@ -219,9 +218,12 @@ const app = new Vue({
             return noDate
         },
         noMessage(contact) {
-            const noMessage = contact.messages.length > 0 ? contact.messages.at(-1).message : 'NESSUN MESSAGGIO'
+            const noMessage = contact.messages.length > 0 ? contact.messages.at(-1).message : 'NESSUN MESSAGGIO';
             return noMessage
-        }
+        },
+        showChatMobile() {
+            this.contacts[this.currentIndex].visible = !this.contacts[this.currentIndex].visible
+        },
     },
     computed: {},
     mounted() {

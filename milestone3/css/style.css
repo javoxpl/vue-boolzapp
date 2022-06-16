@@ -23,15 +23,16 @@
 }
 
 .container {
-    padding-top: 50px;
+    padding-top: 35px;
 }
 
 .userAvatar img {
-    margin: 12px 0;
+    margin: 12px 8px;
     width: 50px;
     height: 50px;
-    filter: drop-shadow(0px 0px 2px rgb(133, 133, 133));
+    filter: drop-shadow(2px 1px 2px rgb(133, 133, 133));
 }
+
 
 .contact {
     background-color: #FFFFFF;
@@ -49,20 +50,23 @@
 }
 
 .notifications {
-    height: 60px;
+    height: 55px;
 }
 
 .header {
     background-color: #EAEAEA;
     height: 70px;
-    filter: drop-shadow(0px 0px 3px rgb(133, 133, 133));
 }
 
 .messages-container {
+    box-shadow: inset 0px 0px 15px rgba(37, 37, 37, 0.23);
     margin: 0 auto;
     overflow-y: auto;
-    width: 100%;
     height: calc(100% - 120px);
+}
+
+.row {
+    filter: drop-shadow(0px 0px 10px rgba(37, 37, 37, 0.261));
 }
 
 .footer {
@@ -71,7 +75,7 @@
 }
 
 .search-bar {
-    height: 50px;
+    height: 45px;
 }
 
 .lastAccess {
@@ -157,7 +161,6 @@
 
 .background {
     background-image: url(../img/mine.jpg);
-    background-size: contain;
     background-repeat: repeat;
 }
 
