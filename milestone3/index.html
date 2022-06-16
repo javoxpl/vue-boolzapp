@@ -25,7 +25,7 @@
             <!-- Row principale -->
             <div class="row align-items-lg-stretch h-100 g-0">
                 <!-- Colonna di sinistra -->
-                <div class="col-4 h-100 border-end border-secondary">
+                <div class="col-12 col-lg-4 h-100 border-end border-secondary">
                     <!-- Riquadro utente -->
                     <div class="header">
                         <div class="userAvatar rounded-circle d-flex justify-content-between align-items-center">
@@ -47,17 +47,19 @@
                                 <i class=" fa-solid fa-bell-slash"></i>
                             </div>
                             <p class="lastMessage m-0">Ricevi notifiche di nuovi messaggi <br>
-                                <span class="text-decoration-underline text-secondary">Attiva notifiche desktop</span>
+                                <span class="text-decoration-underline text-secondary"><a href="#">Attiva notifiche
+                                        desktop</a> </span>
                             </p>
                         </div>
                     </div>
                     <!-- Search bar -->
                     <div class="search-bar">
                         <div class="input-group px-2 py-2">
-                            <span class="input-group-text" id="basic-addon1">
+                            <span class="input-group-text bg-white" id="basic-addon1 ">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </span>
-                            <input v-model="filtro" @keyup="filtra()" type="text" class="form-control form-control-sm"
+                            <input v-model="filtro" @keyup="filtra()" type="text"
+                                class="form-control form-control-sm border-start-0"
                                 placeholder="Cerca o inizia una nuova chat" aria-label="Username"
                                 aria-describedby="basic-addon1">
                         </div>
@@ -75,73 +77,69 @@
                                 <p class="lastAccess m-0 text-secondary">
                                     {{noDate(contact)}}</p>
                             </div>
-                            <div class="flex-fill mx-1">
-                                <span>{{contact.name}}</span>
-                                <p class="lastMessage m-0 text-secondary">
-                                    {{noMessage(contact)}}</p>
+                                <div class="flex-fill mx-2 overflow">
+                                    <span>{{contact.name}}</span>
+                                    <p class="lastMessage m-0 text-secondary">
+                                        {{noMessage(contact)}}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-
-            </div>
-            <!--/colonna di sinistra -->
-            <!-- Colonna di destra -->
-            <div class="col-8 background h-100">
-                <div class="header userAvatar d-flex align-items-center">
-                    <img class="rounded-circle" :src="'./img/avatar' + contacts[currentIndex].avatar + '.jpg'" alt="">
-                    <div>
-                        <p class="m-0">{{contacts[currentIndex].name}}</p>
-                            <span class="lastMessage">Ultimo accesso:
-                                {{contacts[currentIndex].messages.length > 0 ?
-                                contacts[currentIndex].messages.at(-1).date : ''}}
-                            </span>
-                    </div>
-
-                    <div class="flex-fill text-end px-3">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <i class="fa-solid fa-paperclip"></i>
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                    </div>
-                </div>
-                <div class="messages-container">
-                    <div v-for="(item, index) in contacts[currentIndex].messages"
-                        :class="item.status === 'sent' ? 'sent' : 'received'" :key="index" class="message-text">
-
-
-                        <div class="dropdown">
-                                class="btn p-2 border-none" type="button" id="dropdownMenu2" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                <i class="fa-solid fa-chevron-down"></i>
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                <li><button @click="eraseMessage(index, currentIndex)" class="dropdown-item"
-                                        type="button">Elimina
-                                        messaggio</button></li>
-                            </ul>
+                    <!--/colonna di sinistra -->
+                    <!-- Colonna di destra -->
+                    <div class="col-8 background h-100">
+                        <div class="header userAvatar d-flex align-items-center">
+                            <img class="rounded-circle mx-2"
+                                :src="'./img/avatar' + contacts[currentIndex].avatar + '.jpg'" alt="">
+                            <div>
+                                <p class="m-0">{{contacts[currentIndex].name}}</p>
+                                <span class="lastMessage">Ultimo accesso:
+                                    {{contacts[currentIndex].messages.length > 0 ?
+                                    contacts[currentIndex].messages.at(-1).date : ''}}
+                                </span>
+                            </div>
+                            <div class="flex-fill text-end px-3">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <i class="fa-solid fa-paperclip"></i>
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </div>
                         </div>
 
+                            <div class="messages-container d-flex flex-column">
+                                <div v-for="(item, index) in contacts[currentIndex].messages"
+                                    :class="item.status === 'sent' ? 'sent' : 'received'" :key="index"
+                                    class="message-text">
 
-
-                        <p>{{item.message}}</p>
-                        <p class="lastDate m-0 text-end text-secondary">{{item.date}}</p>
-                    </div>
-                </div>
-                <div class="footer">
-                    <div class="input-group px-2 py-1 align-items-center">
-                        <i class="fa-regular fa-face-smile"></i>
-                        <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat"
-                            aria-label="Username" aria-describedby="basic-addon1" v-model="message"
-                            @keyup.enter="sendMessage()">
-                        <i class="fa-solid fa-play"></i>
+                                    <div class="dropdown">
+                                        <button class="btn p-2 border-none" type="button" id="dropdownMenu2"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="fa-solid fa-chevron-down"></i>
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                            <li><button @click="eraseMessage(index, currentIndex)" class="dropdown-item"
+                                                    type="button">Elimina
+                                                    messaggio</button></li>
+                                        </ul>
+                                    </div>
+                                    <p>{{item.message}}</p>
+                                    <p class="lastDate m-0 text-end text-secondary">{{item.date}}</p>
+                                </div>
+                            </div>
+                            <div class="footer d-flex align-items-center">
+                                <div class="input-group px-0 align-items-center">
+                                    <i class="fa-regular fa-face-smile"></i>
+                                    <input type="text" class="form-control rounded-3"
+                                        placeholder="Cerca o inizia una nuova chat" aria-label="Username"
+                                        aria-describedby="basic-addon1" v-model="message" @keyup.enter="sendMessage()">
+                                    <i class="fa-solid fa-microphone"></i>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
-    </div>
-    <script src="vue/script.js"></script>
+        <script src="vue/script.js"></script>
 </body>
 
 </html>
